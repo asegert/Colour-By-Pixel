@@ -30,6 +30,7 @@ Pixel.GameState = {
   },
   createColours: function()
   {
+      //Using a bitmap alpha mask display all the colours as 'blots'
       var colourAssets = ['red', 'orange', 'yellow', 'green', 'blue', 'purple', 'pink', 'white', 'grey', 'brown', 'black'];
       
       for(var i=0; i<colourAssets.length; i++)
@@ -55,6 +56,7 @@ Pixel.GameState = {
   },
   createBoard: function()
   {
+      //Create the grid with empty tiles and numbers corresponding to the colour that fills it
       for(var i=0; i<this.board.length; i++)
       {
           for(var j=0; j<this.board[i].length; j++)
@@ -72,13 +74,14 @@ Pixel.GameState = {
                       {
                           this.boardTileNum.remove(button.num);
                           button.inputEnabled = false;
-                          
+                          //Keep track of how many tiles are corretly filled
                           this.filled--;
                           if(this.filled == 0)
                           {
                               this.endGame();
                           }
                       }
+                      //If a dark colour is used and the black number cannot be seen make the colour white
                       else if(this.colour.text.colour == 'black' || this.colour.text.colour == 'brown' || this.colour.text.colour == 'grey')
                       {
                           //Change text to white
@@ -107,9 +110,9 @@ Pixel.GameState = {
           list=list+count+", ";
           arr[count] = color.key;
           count++;
-      }, this);
+      }, this);init()
       list=list+count+"]";
-      
+      //Launch the coupon
       this.coupon = this.add.sprite(40, 400, 'coupon');
       this.coupon.anchor.setTo(0.5, 0.5);
       this.coupon.scale.setTo(0.5, 0.5);

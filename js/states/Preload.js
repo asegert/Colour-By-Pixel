@@ -8,8 +8,11 @@ Pixel.PreloadState = {
     this.preloadBar.anchor.setTo(0.5);
     this.preloadBar.scale.setTo(100, 1);
     this.load.setPreloadSprite(this.preloadBar);*/
-
+    /*Pixel.game.cache = new Phaser.Cache(Pixel.game);
+    Pixel.game.load.reset();
+    Pixel.game.load.removeAll();*///Phaser.Cache.destroy();
     //images
+    Pixel.game.cache = new Phaser.Cache(Pixel.game);
     this.load.image('backgroundMain', 'assets/images/mainBackground.png');
     this.load.image('background', 'assets/images/background.png');
     this.load.image('start', 'assets/images/start_button.png');
